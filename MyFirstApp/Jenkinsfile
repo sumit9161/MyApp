@@ -1,0 +1,24 @@
+// File: Jenkinsfile (on dev branch)
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building DEV branch..."
+                // Example build command
+                sh 'echo "Compiling code for DEV"'
+            }
+        }
+        stage('Unit Test') {
+            steps {
+                echo "Running unit tests on DEV branch..."
+                sh 'echo "Executing DEV tests"'
+            }
+        }
+    }
+    post {
+        always {
+            echo "DEV branch pipeline finished."
+        }
+    }
+}
