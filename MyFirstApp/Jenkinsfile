@@ -1,0 +1,29 @@
+// File: Jenkinsfile (on staging branch)
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building STAGING branch..."
+                sh 'echo "Compiling code for STAGING"'
+            }
+        }
+        stage('Integration Test') {
+            steps {
+                echo "Running integration tests on STAGING branch..."
+                sh 'echo "Executing STAGING integration tests"'
+            }
+        }
+        stage('Deploy to Staging') {
+            steps {
+                echo "Deploying to Staging server..."
+                sh 'echo "Deploying STAGING branch to Staging server"'
+            }
+        }
+    }
+    post {
+        always {
+            echo "STAGING branch pipeline finished."
+        }
+    }
+}
